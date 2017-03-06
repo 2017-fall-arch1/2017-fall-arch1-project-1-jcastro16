@@ -13,33 +13,33 @@ typedef struct bstNode{
 typedef struct{
   bstNode *root;
 }
-  bstTree;
+  bsTree;
 
 //Assign memory
-bstTree *bstTreeAlloc();
+bsTree *bsTreeAlloc();
 //Make free space
-void bstTreeFree(bstTree *tp);
+void bsTreeFree(bsTree *tp);
 //Add names to tree
-void bstTreePut(bstTree *tp, bstNode *np, char *s);
+void bsTreePut(bsTree *tp, bstNode *np, char *s);
 //Just an Empty tree
-void bstTreeMakeEmpty(bstNode *tp);
+void bsTreeMakeEmpty(bstNode *tp);
 //Names to be printed alphabetically
-void bstTreePrint(bstNode *np);
+void bsTreePrint(bstNode *np);
 //To remove a node from tree
-void bstTreeRemove(bstTree *tp, bstNode *npP, bstNode *np, char *s);
+void bsTreeRemove(bsTree *tp, bstNode *npP, bstNode *np, char *s);
 //Write the tree names to file
 void writeTreeToFile(bstNode *np, FILE *fp);
 
 
 //Prints the instructions for the main menu
-void printHomeStateInstructions();
+void printHSInstructions();
 //Retrive the user input
 int gets_n(char *s, int limit);
 //Its runs the add state
-void addState(char *buf, bstTree *tp);
+void addState(char *buf, bsTree *tp);
 //It runs the remove state
-void removeState(char *buf, bstTree *tp);
+void removeState(char *buf, bsTree *tp);
 //It runs the list state
-void listState(bstTree *tp);
+void listState(bsTree *tp);
 
 #endif

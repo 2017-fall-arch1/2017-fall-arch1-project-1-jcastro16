@@ -6,6 +6,8 @@ to free memory for BST, initiating the NODE, adding name to file, sorting alphab
 'bst.h' implements the structs and calls for necessary methods
 
 'Makefile' consists of the processes of compiling all and cleaning if needed to
+	  // Code was used from Dr. Freudenthal(UTEP) to make adjustments
+	   and program run smoothly.
 
 'stateManager' is the optinal main menu interface
 

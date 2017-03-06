@@ -7,18 +7,18 @@
 //bst.c file
 
 //assign memory for tree
-bstTree *bstTreeAlloc(){
-  bstTree *tp = (bstTree *)malloc(sizeof(bstTree));
+bsTree *bsTreeAlloc(){
+  bsTree *tp = (bsTree *)malloc(sizeof(bsTree));
   tp -> root = 0;
   return tp;
 }
   
-  void bstTreeFree(bstTree *tp){
+  void bsTreeFree(bsTree *tp){
     free(tp);
   }
   
   //Make binary search tree empty
-  void bstTreeMakeEmpty(bstNode *tp){
+  void bsTreeMakeEmpty(bstNode *tp){
     bstNode *current = tp;
 
     if(current == 0){
@@ -27,13 +27,14 @@ bstTree *bstTreeAlloc(){
     else{
       bstNode *nextLeft = current -> left;
       bstNode *nextRight = current -> right;
-      bstTreeMakeEmpty(nextLeft);
-      bstTreeMakeEmpty(nextRight);
+      bsTreeMakeEmpty(nextLeft);
+      bsTreeMakeEmpty(nextRight);
       free(current -> str);
       free(current);
     }
   }
   //return a copy of s
+  //Funcition was extracted from Dr. Freudenthal LinkedListDemo, it provided be  tter functionality 
   char *makeStringCopy(char *s){
     char *scopy;
     int len;
@@ -61,7 +62,7 @@ bstTree *bstTreeAlloc(){
     }
     }
     //find smallest value name starting from npo(node pointer original)
-    void bstTreeFindSmallest(bstNode *npo, bstNode *npP, bstNode *np){
+    void bsTreeFindSmallest(bstNode *npo, bstNode *npP, bstNode *np){
       if(isLeaf(np)){
          npo -> str = np -> str;
          if(npP -> left == np){
@@ -84,7 +85,7 @@ bstTree *bstTreeAlloc(){
       }
       else{
 	//If it has left, it keeps going left
-	bstTreeFindSmallest(npo, np, np -> left);
+	bsTreeFindSmallest(npo, np, np -> left);
       }
     }
 
@@ -124,7 +125,7 @@ bstTree *bstTreeAlloc(){
     }
 
     //Add name to the tree
-    void bstTreePut(bstTree *tp, bstNode *np, char *s){
+    void bsTreePut(bsTree *tp, bstNode *np, char *s){
       char *scopy = makeStringCopy(s);
       bstNode *i;
       if(np == 0){
@@ -148,7 +149,7 @@ bstTree *bstTreeAlloc(){
 	  }
 	  else{
 	    //Left not empty, keep going left
-	    bstTreePut(tp, np -> left, s);
+	    bsTreePut(tp, np -> left, s);
 	  }
 	}
 	//Input name is > than the current one
@@ -161,26 +162,26 @@ bstTree *bstTreeAlloc(){
 	  }
 	  //Right not empty, go right
 	  else{
-	    bstTreePut(tp, np -> right, s);
+	    bsTreePut(tp, np -> right, s);
 	  }
 	}
       }
     }
 
     //Prints the name on the list alphabetically
-    void bstTreePrint(bstNode *np){
+    void bsTreePrint(bstNode *np){
       if(np == 0){
 	return;
       }
       else{
-	bstTreePrint(np -> left);
+	bsTreePrint(np -> left);
 	printf("\t%s\n", np -> str);
-	bstTreePrint(np -> right);
+	bsTreePrint(np -> right);
       }
     }
 
     //Removes the name for the binary search tree
-    void bstTreeRemove(bstTree *tp, bstNode *npP, bstNode *np, char *s){
+    void bsTreeRemove(bsTree *tp, bstNode *npP, bstNode *np, char *s){
       if(np == 0){
 	printf("Name isn't on the list.\n");
       }
@@ -224,16 +225,16 @@ bstTree *bstTreeAlloc(){
 	    }
 	    else {
 	      //Node has two children
-	      bstTreeFindSmallest(np, np, np -> right);
+	      bsTreeFindSmallest(np, np, np -> right);
 	    }
 	    printf("The employee selected has been removed!\n");
 	    }else if(cmpstr < 0){
 	      //Node not found, so go left
-	      bstTreeRemove(tp, np, np -> left, s);
+	      bsTreeRemove(tp, np, np -> left, s);
 	    }
 	    else{
 	      //Node not found, so go right
-	      bstTreeRemove(tp, np, np -> right, s);
+	      bsTreeRemove(tp, np, np -> right, s);
 	    }
 	}
       }

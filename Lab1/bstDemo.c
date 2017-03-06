@@ -21,7 +21,7 @@ int gets_n(char *s, int limit){
 }
 
 //Create the tree using the provided file
-void populateTreeFromFile(bstTree *tp){
+void populateTreeFromFile(bsTree *tp){
   FILE *fp;
   char buf[100];
 
@@ -32,13 +32,13 @@ void populateTreeFromFile(bstTree *tp){
     for(len = 0; buf[len]; len++);
     //Delete the '\n'
     buf[len-1] = 0;
-    bstTreePut(tp, tp -> root, buf);
+    bsTreePut(tp, tp -> root, buf);
   }
   fclose(fp);
 }
 
 //Saves the name from the binary search tree
-void saveNamesToFile(bstTree *tp){
+void saveNamesToFile(bsTree *tp){
   FILE *fp;
   fp = fopen("names.txt","w+");
   //Write names
@@ -48,11 +48,11 @@ void saveNamesToFile(bstTree *tp){
 
 int main(){
   char buf[100];
-  bstTree *tp = bstTreeAlloc();
+  bsTree *tp = bsTreeAlloc();
 
   populateTreeFromFile(tp);
   //Prints the Main Menu Interface
-  printHomeStateInstructions();
+  printHSInstructions();
 
   while(gets_n(buf, 100)){
     int cmplist;
@@ -87,8 +87,8 @@ int main(){
     }
   }
   saveNamesToFile(tp);
-  bstTreeMakeEmpty(tp -> root);
-  bstTreeFree(tp);
+  bsTreeMakeEmpty(tp -> root);
+  bsTreeFree(tp);
   printf("Adios...\n");
   return 0;
 }

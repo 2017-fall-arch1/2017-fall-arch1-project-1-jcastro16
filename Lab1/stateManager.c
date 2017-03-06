@@ -5,7 +5,8 @@
 
 //stateManager.c
 
-void printHomeStateInstructions(){
+//Prints the home state instructions
+void printHSInstructions(){
   printf("\n");
   printf("\n");
   printf("\n");
@@ -29,7 +30,7 @@ void printRemoveStateInstructions(){
   printf("'back' to exit..\n");
 }
 
-void addState(char *buf, bstTree *tp){
+void addState(char *buf, bsTree *tp){
   printAddStateInstructions();
   while(gets_n(buf,100)){
     int cmpback;
@@ -41,16 +42,16 @@ void addState(char *buf, bstTree *tp){
       break;
     }
     else{
-      bstTreePut(tp, tp -> root, buf);
+      bsTreePut(tp, tp -> root, buf);
       printf("The name has been added.\n");
     }
   }
-  printHomeStateInstructions();
+  printHSInstructions();
 }
 
-void removeState(char *buf, bstTree *tp){
+void removeState(char *buf, bsTree *tp){
   printRemoveStateInstructions();
-  bstTreePrint(tp -> root);
+  bsTreePrint(tp -> root);
   while(gets_n(buf,100)){
     int cmpback;
     char *back = "back";
@@ -61,18 +62,18 @@ void removeState(char *buf, bstTree *tp){
       break;
     }
     else{
-      bstTreeRemove(tp, tp -> root, tp -> root, buf);
-      bstTreePrint(tp -> root);
+      bsTreeRemove(tp, tp -> root, tp -> root, buf);
+      bsTreePrint(tp -> root);
     }
   }
-  printHomeStateInstructions();
+  printHSInstructions();
 }
 
-void listState(bstTree *tp){
+void listState(bsTree *tp){
   printf("\tThe list in alphabetical order....\n\n");
-  bstTreePrint(tp -> root);
+  bsTreePrint(tp -> root);
   printf("\n\tEnd List.\n");
-  printHomeStateInstructions();
+  printHSInstructions();
 }
 
   
