@@ -6,11 +6,12 @@ to free memory for BST, initiating the NODE, adding name to file, sorting alphab
 'bst.h' implements the structs and calls for necessary methods
 
 'Makefile' consists of the processes of compiling all and cleaning if needed to
-	  // Code was used from Dr. Freudenthal(UTEP) to make adjustments
-	   and program run smoothly.
+	  // Credit goes to Dr. Freudenthal(UTEP) to make adjustments
+	   and program run smoothly. Code he provided was re-used to create ass          ignment
 
 'stateManager' is the optinal main menu interface
 
+Note: Before running, make sure you make clean and make run by using the following commands listed below.
 
 To compile and run:
    $make run
